@@ -1,19 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import TodoList from "./ToDoList";
+import AppRoutes from "./routes/AppRoutes";
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "./styles/theme";
+
 
 function App() {
   return (
-    <Router>
-      <h1>To Do List</h1>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <TodoList/>
-          }
-        />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <AppRoutes />
+    </ThemeProvider>
   );
 }
 
