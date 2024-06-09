@@ -1,7 +1,7 @@
-import AppRoutes from "./routes/AppRoutes";
-import { ThemeProvider } from "@material-ui/styles";
-import theme from "./styles/theme";
+import { ThemeProvider } from '@material-ui/styles';
 
+import AppRoutes from './routes/AppRoutes';
+import theme from './styles/theme';
 
 function App() {
   return (
@@ -12,4 +12,3 @@ function App() {
 }
 
 export default App;
-
