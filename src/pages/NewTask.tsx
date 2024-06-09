@@ -1,12 +1,12 @@
 import AppContainer from "../components/ContentContainer";
-import TasksList from "../components/TasksList";
+import TaskCreate from "../features/TaskCreate";
 
-function Home() {
+function NewTask() {
   return (
     <AppContainer>
-      <TasksList />
+      <TaskCreate />
     </AppContainer>
   );
 }
 
-export default Home;
+export default NewTask;
