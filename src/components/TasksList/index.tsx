@@ -11,9 +11,9 @@ import EditIcon from '@material-ui/icons/Edit';
 import { useTasks } from '../../hooks/useTasks';
 
 function TasksList() {
-  const{ data } = useTasks()
+  const { data } = useTasks();
 
-  console.log(data)
+  console.log(data);
 
   return (
     <List>

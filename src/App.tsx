@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { ThemeProvider } from '@material-ui/styles';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import AppRoutes from './routes/AppRoutes';
 import theme from './styles/theme';
