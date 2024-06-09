@@ -1,5 +1,5 @@
 import Container from '@material-ui/core/Container';
-import { makeStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import TasksList from '../components/TasksList';
 
