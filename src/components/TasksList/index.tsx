@@ -5,7 +5,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
@@ -36,7 +35,7 @@ function TasksList() {
         tasks?.map((task, id) => (
           <ListItem key={task.id + id} button className={classes.root}>
             <ListItemIcon>
-              <TaskStatusIcon status={task.status}  />
+              <TaskStatusIcon status={task.status} />
             </ListItemIcon>
             <ListItemText
               primary={task.title}
