@@ -4,10 +4,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles,Theme } from '@material-ui/core/styles';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-import { Theme, makeStyles } from '@material-ui/core/styles';
+
 import { useTasks } from '../../hooks/useTasks';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -29,8 +30,7 @@ function TasksList() {
 
   return (
     <List>
-      {tasks &&
-        tasks.map((task, id) => (
+      {tasks?.map((task, id) => (
           <ListItem key={task.id + id} button className={classes.root}>
             <ListItemIcon>
               <CheckCircleIcon color="primary" />
