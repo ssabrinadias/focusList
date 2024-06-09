@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { ITask } from '../interfaces/tasks';
+
 import { API_URL } from '../data/config';
+import { ITask } from '../interfaces/tasks';
 
 
 export const getTasks = async (): Promise<ITask[]> => {
