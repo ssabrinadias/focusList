@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2020: true, jest: true },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
@@ -23,7 +23,7 @@ module.exports = {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-  plugins: ["react-refresh", "simple-import-sort"],
+  plugins: ["react-refresh", "simple-import-sort", "jest"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",

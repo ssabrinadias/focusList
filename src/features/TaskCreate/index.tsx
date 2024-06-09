@@ -72,48 +72,46 @@ const TaskCreate: React.FC = () => {
   }, [isError]);
 
   return (
-    <>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ errors, touched }) => (
-          <Form className={classes.form}>
-            <Field
-              as={TextField}
-              className={classes.textField}
-              name="title"
-              label="Titulo da tarefa"
-              variant="outlined"
-              error={errors.title && touched.title}
-              helperText={errors.title && touched.title && errors.title}
-            />
-            <Field
-              as={TextField}
-              className={classes.textField}
-              name="description"
-              label="Descrição"
-              multiline
-              rows={4}
-              variant="outlined"
-              error={errors.description && touched.description}
-              helperText={
-                errors.description && touched.description && errors.description
-              }
-            />
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="primary"
-              type="submit"
-            >
-              Add Task
-            </Button>
-          </Form>
-        )}
-      </Formik>
-    </>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ errors, touched }) => (
+        <Form className={classes.form}>
+          <Field
+            as={TextField}
+            className={classes.textField}
+            name="title"
+            label="Titulo da tarefa"
+            variant="outlined"
+            error={errors.title && touched.title}
+            helperText={errors.title && touched.title && errors.title}
+          />
+          <Field
+            as={TextField}
+            className={classes.textField}
+            name="description"
+            label="Descrição"
+            multiline
+            rows={4}
+            variant="outlined"
+            error={errors.description && touched.description}
+            helperText={
+              errors.description && touched.description && errors.description
+            }
+          />
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            type="submit"
+          >
+            Add Task
+          </Button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
