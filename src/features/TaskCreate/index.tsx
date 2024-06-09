@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { Field, Form, Formik, FormikHelpers } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
-import { useToastNotify } from "../../components/TostyNotify";
+import { useToast } from "../../context/NotifyContext/useToast";
 import useCreateTask from "../../hooks/useCreateTask";
 
 interface FormValues {
@@ -45,9 +46,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const TaskCreate: React.FC = () => {
+  const navigate = useNavigate();
   const classes = useStyles();
-  const { ToastContainer, showToast } = useToastNotify();
-  const { mutate, isSuccess } = useCreateTask();
+  const { showToast } = useToast();
+  const { mutate, isSuccess, isError } = useCreateTask();
   const handleSubmit = (
     values: FormValues,
     { resetForm }: FormikHelpers<FormValues>
@@ -58,13 +60,19 @@ const TaskCreate: React.FC = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      showToast("Nova Tarefa Criada!");
+      navigate("/");
+      showToast("Nova task criada!");
     }
-  }, [isSuccess, showToast]);
+  }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      showToast("Erro ao criar a task!");
+    }
+  }, [isError]);
 
   return (
     <>
-      {ToastContainer}
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

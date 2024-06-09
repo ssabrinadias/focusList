@@ -4,6 +4,7 @@ import { FunctionComponent } from "react";
 import { ThemeProvider } from "@material-ui/styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import ToastProvider from "./context/NotifyContext";
 import { APP_MODE } from "./data/config";
 import AppRoutes from "./pages/router";
 import theme from "./styles/theme";
@@ -25,11 +26,13 @@ const App: FunctionComponent = () => {
     })
   );
   return (
-    <ThemeProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <AppRoutes />
-      </QueryClientProvider>
-    </ThemeProvider>
+    <ToastProvider>
+      <ThemeProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
+          <AppRoutes />
+        </QueryClientProvider>
+      </ThemeProvider>
+    </ToastProvider>
   );
 };
 
