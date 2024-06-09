@@ -1,12 +1,25 @@
 import { ThemeProvider } from '@material-ui/styles';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import AppRoutes from './routes/AppRoutes';
 import theme from './styles/theme';
+import { useState } from 'react';
 
 function App() {
+  const [queryClient] = useState(
+    new QueryClient({
+      defaultOptions: {
+        queries: {
+          retry: 3,
+        },
+      },
+    }),
+  );
   return (
     <ThemeProvider theme={theme}>
-      <AppRoutes />
+      <QueryClientProvider client={queryClient}>
+        <AppRoutes />
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
