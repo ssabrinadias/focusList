@@ -11,6 +11,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import { useTasks } from '../../hooks/useTasks';
 import NoTasksPlaceholder from '../NoTasksPlaceholder';
+import TaskStatusIcon from '../TaskIcon';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -35,7 +36,7 @@ function TasksList() {
         tasks?.map((task, id) => (
           <ListItem key={task.id + id} button className={classes.root}>
             <ListItemIcon>
-              <CheckCircleIcon color="primary" />
+              <TaskStatusIcon status={task.status}  />
             </ListItemIcon>
             <ListItemText
               primary={task.title}
