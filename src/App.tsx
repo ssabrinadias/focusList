@@ -5,8 +5,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import AppRoutes from './routes/AppRoutes';
 import theme from './styles/theme';
+import { FunctionComponent } from 'react';
 
-function App() {
+const App: FunctionComponent = () => {
   const [queryClient] = useState(
     new QueryClient({
       defaultOptions: {
@@ -23,6 +24,6 @@ function App() {
       </QueryClientProvider>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

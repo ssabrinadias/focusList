@@ -1,11 +1,10 @@
+import { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
 import Home from '../pages/Home';
 
-const AppRoutes = () => {
+const AppRoutes: FunctionComponent = () => {
   return (
     <Router>
-      <h1>To Do List</h1>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
