@@ -1,13 +1,20 @@
-import { useState } from 'react';
-import { FunctionComponent } from 'react';
+import { useState } from "react";
+import { FunctionComponent } from "react";
 
-import { ThemeProvider } from '@material-ui/styles';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ThemeProvider } from "@material-ui/styles";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import AppRoutes from './routes/AppRoutes';
-import theme from './styles/theme';
+import { APP_MODE } from "./data/config";
+import AppRoutes from "./routes/AppRoutes";
+import theme from "./styles/theme";
 
 const App: FunctionComponent = () => {
+  if (APP_MODE === "development") {
+    import("./__mocks__").catch((error) => {
+      console.error("Erro ao importar os mocks:", error);
+    });
+  }
+
   const [queryClient] = useState(
     new QueryClient({
       defaultOptions: {
@@ -15,7 +22,7 @@ const App: FunctionComponent = () => {
           retry: 3,
         },
       },
-    }),
+    })
   );
   return (
     <ThemeProvider theme={theme}>

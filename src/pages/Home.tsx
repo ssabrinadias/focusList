@@ -1,7 +1,7 @@
-import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
+import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/core/styles";
 
-import TasksList from '../components/TasksList';
+import TasksList from "../components/TasksList";
 
 const useStyles = makeStyles(() => ({
   root: {

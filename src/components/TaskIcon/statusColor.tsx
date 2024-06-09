@@ -1,4 +1,4 @@
-import { deepPurple, grey } from '@material-ui/core/colors';
+import { deepPurple, grey } from "@material-ui/core/colors";
 
 const statusColors: Record<string, string> = {
   canceled: grey[100],
@@ -6,5 +6,5 @@ const statusColors: Record<string, string> = {
 };
 
 export const getTaskStatusColor = (status: string): string => {
-  return statusColors[status] || 'primary';
+  return statusColors[status] || "primary";
 };

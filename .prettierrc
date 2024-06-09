@@ -1,7 +1,17 @@
 {
-  "singleQuote": true,
-  "arrowParens": "always",
-  "trailingComma": "all",
-  "printWidth": 100,
-  "tabWidth": 2
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": false,
+  "importOrder": [
+    "^react",
+    "^(?!(hooks|types|utils|components|modules|[./])).+",
+    "^hooks",
+    "^types",
+    "^utils",
+    "^components",
+    "modules",
+    "^[./]"
+  ],
+  "importOrderSeparation": true
 }
