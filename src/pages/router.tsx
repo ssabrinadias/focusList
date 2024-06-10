@@ -11,7 +11,7 @@ const AppRoutes: FunctionComponent = () => {
   return (
     <Router>
       <Header title="Sei la" />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Carregando tarefas...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/new-task" element={<NewTask />} />

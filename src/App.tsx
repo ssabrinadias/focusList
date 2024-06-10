@@ -10,7 +10,7 @@ import AppRoutes from "./pages/router";
 import theme from "./styles/theme";
 
 const App: FunctionComponent = () => {
-  if (APP_MODE === "development") {
+  if (APP_MODE === "_development") {
     import("./__mocks__");
   }
 
