@@ -11,9 +11,7 @@ import theme from "./styles/theme";
 
 const App: FunctionComponent = () => {
   if (APP_MODE === "development") {
-    import("./__mocks__").catch((error) => {
-      console.error("Erro ao importar os mocks:", error);
-    });
+    import("./__mocks__");
   }
 
   const [queryClient] = useState(

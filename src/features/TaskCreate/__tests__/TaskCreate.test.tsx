@@ -1,9 +1,11 @@
-import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import TaskCreate from "../../TaskCreate";
+/* eslint-disable testing-library/no-container */
+import { useNavigate } from "react-router-dom";
+
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+
 import { useToast } from "../../../context/NotifyContext/useToast";
 import useCreateTask from "../../../hooks/useCreateTask";
-import { useNavigate } from "react-router-dom";
+import TaskCreate from "../index";
 
 // Mocks
 jest.mock("../../../context/NotifyContext/useToast");
@@ -21,13 +23,13 @@ describe("TaskCreate Component", () => {
   const mockNavigate = jest.fn();
 
   beforeEach(() => {
-    useToast.mockReturnValue({ showToast: mockShowToast });
-    useCreateTask.mockReturnValue({
+    (useToast as jest.Mock).mockReturnValue({ showToast: mockShowToast });
+    (useCreateTask as jest.Mock).mockReturnValue({
       mutate: mockMutate,
       isSuccess: true,
       isError: false,
     });
-    useNavigate.mockReturnValue(mockNavigate);
+    (useNavigate as jest.Mock).mockReturnValue(mockNavigate);
   });
 
   afterEach(() => {
@@ -39,10 +41,10 @@ describe("TaskCreate Component", () => {
 
     // Find title and description inputs
     const addButton = screen.getByRole("button", { name: "Add Task" });
-    const titleInput = container.querySelector('input[name="title"]');
+    const titleInput = container.querySelector('input[name="title"]') as any;
     const descriptionInput = container.querySelector(
       'textarea[name="description"]'
-    );
+    ) as any;
     // Fill form
     fireEvent.change(titleInput, { target: { value: "Test: Title" } });
     fireEvent.change(descriptionInput, {
@@ -53,12 +55,13 @@ describe("TaskCreate Component", () => {
 
     await waitFor(() => {
       expect(window.location.href).toContain("http://localhost/");
-      expect(mockShowToast).toHaveBeenCalledWith("Nova task criada!");
     });
+
+    expect(mockShowToast).toHaveBeenCalledWith("Nova task criada!");
   });
 
   test("displays error toast on submission error", async () => {
-    useCreateTask.mockReturnValueOnce({
+    (useCreateTask as jest.Mock).mockReturnValueOnce({
       mutate: mockMutate,
       isSuccess: false,
       isError: true,
@@ -68,10 +71,10 @@ describe("TaskCreate Component", () => {
 
     // Find title and description inputs
     const addButton = screen.getByRole("button", { name: "Add Task" });
-    const titleInput = container.querySelector('input[name="title"]');
+    const titleInput = container.querySelector('input[name="title"]') as any;
     const descriptionInput = container.querySelector(
       'textarea[name="description"]'
-    );
+    ) as any;
     // Fill form
     fireEvent.change(titleInput, { target: { value: "Test: Title" } });
     fireEvent.change(descriptionInput, {

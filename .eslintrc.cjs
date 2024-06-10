@@ -1,6 +1,7 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true, jest: true },
+  ignorePatterns: ["jest.setup.ts", "**/__tests__/*"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
@@ -38,6 +39,10 @@ module.exports = {
 
     // disable no empty function to work with saga
     "@typescript-eslint/no-empty-function": "off",
+    "testing-library/no-node-access": [
+      "off",
+      { allowContainerFirstChild: true },
+    ],
   },
   overrides: [
     // unit and integration testing configuration

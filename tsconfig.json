@@ -18,6 +18,7 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["jest", "node"] // Adicione esta linha
   },
-  "include": ["src", "jest.config.ts"],
+  "exclude": ["__tests__", "*.test.tsx", "*.spec.ts"],
+  "include": ["src", "jest.config.ts", "jest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
