@@ -1,5 +1,5 @@
 import AppContainer from "../components/ContentContainer";
-import TasksList from "../components/TasksList";
+import TasksList from "../features/TaskList";
 
 function Home() {
   return (

@@ -14,7 +14,7 @@ import TaskStatusIcon from "../TaskIcon";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    marginTop: 30,
+    marginTop: 20,
     marginBottom: 16,
     padding: 16,
     boxShadow: theme.shadows[3],
