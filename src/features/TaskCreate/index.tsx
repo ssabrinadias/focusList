@@ -87,6 +87,7 @@ const TaskCreate: React.FC = () => {
             variant="outlined"
             error={errors.title && touched.title}
             helperText={errors.title && touched.title && errors.title}
+            data-testid="title_field"
           />
           <Field
             as={TextField}
@@ -100,6 +101,7 @@ const TaskCreate: React.FC = () => {
             helperText={
               errors.description && touched.description && errors.description
             }
+            data-testid="description_field"
           />
           <Button
             className={classes.button}
