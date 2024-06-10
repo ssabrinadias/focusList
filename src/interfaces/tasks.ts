@@ -1,5 +1,5 @@
 export interface ITask {
-  id: string;
+  id: number;
   createdAt: string;
   title: string;
   description: string;

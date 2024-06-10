@@ -16,7 +16,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["jest", "node"] // Adicione esta linha
+    "types": ["jest", "node", "@testing-library/jest-dom"]
   },
   "exclude": ["__tests__", "*.test.tsx", "*.spec.ts"],
   "include": ["src", "jest.config.ts", "jest.setup.ts"],

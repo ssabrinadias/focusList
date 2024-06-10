@@ -1,4 +1,5 @@
 import { rest } from "msw";
+
 import { server } from "../../__mocks__/server";
 import { getTasks } from "../getTasks";
 
