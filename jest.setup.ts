@@ -1,4 +1,4 @@
-import { server } from "./src/__mocks__/server";
+import { server } from "./src/config/server";
 
 import "@testing-library/jest-dom";
 

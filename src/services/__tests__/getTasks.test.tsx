@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-import { server } from "../../__mocks__/server";
+import { server } from "../../config/server";
 import { getTasks } from "../getTasks";
 
 jest.mock("../../data/config", () => ({

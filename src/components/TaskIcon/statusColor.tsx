@@ -1,10 +1,17 @@
-import { deepPurple, grey } from "@material-ui/core/colors";
-
-const statusColors: Record<string, string> = {
-  canceled: grey[100],
-  done: deepPurple[500],
+const statusColors: Record<string, ValidColorKeys> = {
+  todo: "primary",
+  done: "disabled",
 };
 
-export const getTaskStatusColor = (status: string): string => {
-  return statusColors[status] || "primary";
+type ValidColorKeys =
+  | "disabled"
+  | "action"
+  | "inherit"
+  | "primary"
+  | "secondary"
+  | "error"
+  | undefined;
+
+export const getTaskStatusColor = (status: string): ValidColorKeys => {
+  return statusColors[status] ?? "primary";
 };

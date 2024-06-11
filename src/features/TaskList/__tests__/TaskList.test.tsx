@@ -2,7 +2,7 @@ import { rest } from "msw";
 
 import { screen, waitFor } from "@testing-library/react";
 
-import { server } from "../../../__mocks__/server";
+import { server } from "../../../config/server";
 import { API_URL } from "../../../data/config";
 import { render } from "../../../utils/TestCustomRender";
 import TasksList from "../index";

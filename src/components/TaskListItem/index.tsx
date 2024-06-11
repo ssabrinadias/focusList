@@ -6,42 +6,15 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles, Theme } from "@material-ui/core/styles";
 
 import { useToast } from "../../context/NotifyContext/useToast";
 import useUpdateTask from "../../hooks/useUpdateTasks";
 import TaskStatusIcon from "../TaskIcon";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    marginTop: 20,
-    marginBottom: 16,
-    padding: 16,
-    boxShadow: theme.shadows[3],
-    transition: "opacity 0.3s, background-color 0.3s",
-  },
-  completed: {
-    opacity: 0.5,
-    backgroundColor: theme.palette.action.disabledBackground,
-    cursor: "default",
-  },
-  spinner: {
-    zIndex: 2,
-    marginTop: "10px",
-    marginLeft: "15px",
-  },
-}));
+import { ITaskListItemProps } from "./interface";
+import { useStyles } from "./styles";
 
-interface TaskListItemProps {
-  task: {
-    id: number;
-    title: string;
-    description?: string;
-    status: string;
-  };
-}
-
-const TaskListItem: React.FC<TaskListItemProps> = ({ task }) => {
+const TaskListItem: React.FC<ITaskListItemProps> = ({ task }) => {
   const classes = useStyles();
   const [checked, setChecked] = React.useState(task.status === "done");
   const {
@@ -62,10 +35,9 @@ const TaskListItem: React.FC<TaskListItemProps> = ({ task }) => {
       showToast("Erro ao atualizar");
     }
     if (isSuccess) {
-      console.log("entra aui?", isSuccess, status);
       setChecked((prev) => !prev);
     }
-  }, [status]);
+  }, [isError, isSuccess, showToast, status]);
 
   return (
     <ListItem

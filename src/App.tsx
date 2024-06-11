@@ -11,7 +11,7 @@ import theme from "./styles/theme";
 
 const App: FunctionComponent = () => {
   if (APP_MODE === "_development") {
-    import("./__mocks__");
+    import("./config");
   }
 
   const [queryClient] = useState(

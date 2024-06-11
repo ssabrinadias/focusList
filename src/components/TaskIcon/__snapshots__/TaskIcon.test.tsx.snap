@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskStatusIcon Component renders with disabled color when status is todo 1`] = `Screen {}`;
+
+exports[`TaskStatusIcon Component renders with primary color when status is done 1`] = `Screen {}`;
