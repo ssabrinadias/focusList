@@ -10,7 +10,7 @@ const NewTask = React.lazy(() => import("./NewTask"));
 const AppRoutes: FunctionComponent = () => {
   return (
     <Router>
-      <Header title="Sei la" />
+      <Header />
       <Suspense fallback={<div>Carregando tarefas...</div>}>
         <Routes>
           <Route path="/" element={<Home />} />

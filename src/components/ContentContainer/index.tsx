@@ -5,9 +5,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
   root: {
-    marginTop: 50,
+    marginTop: 60,
     marginBottom: 16,
     padding: 16,
+    minWidth: "340px",
   },
   button: {
     marginTop: 16,

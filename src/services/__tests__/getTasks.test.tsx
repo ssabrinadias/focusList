@@ -12,9 +12,16 @@ describe("getTasks function", () => {
   test("fetches tasks successfully", async () => {
     const tasks = await getTasks();
 
-    expect(tasks).toEqual({
-      message: "text for test",
-    });
+    expect(tasks).toEqual([
+      {
+        active: false,
+        createdAt: "2024-06-09T02:50:41.047Z",
+        description: "description 1",
+        id: "1",
+        status: "done",
+        title: "title 1",
+      },
+    ]);
   });
   test("fetches tasks error", async () => {
     server.use(
