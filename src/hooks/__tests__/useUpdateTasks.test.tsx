@@ -11,7 +11,6 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 import { rest } from "msw";
 
 import { server } from "../../config/server";
-// import { updateTask } from "../../services/updateTasks";
 import { AllTheProviders } from "../../utils/ProvidersForTest";
 
 describe("useUpdateTask", () => {
