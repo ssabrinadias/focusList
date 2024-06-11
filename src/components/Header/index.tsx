@@ -11,8 +11,6 @@ import usePageTitle from "../../hooks/usePageTitle";
 
 import { useStyles } from "./style";
 
-
-
 const Header: React.FC = () => {
   const classes = useStyles();
   const navigate = useNavigate();

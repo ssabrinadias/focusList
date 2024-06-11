@@ -4,8 +4,6 @@ import Typography from "@material-ui/core/Typography";
 
 import { useStyles } from "./style";
 
-
-
 const NoTasksPlaceholder: React.FC = () => {
   const classes = useStyles();
 

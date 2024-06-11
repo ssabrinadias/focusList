@@ -12,8 +12,6 @@ import { ITask } from "../../interfaces/tasks";
 
 import { useStyles } from "./style";
 
-
-
 function TasksList() {
   const classes = useStyles();
   const { data: tasks, isLoading } = useTasks();
