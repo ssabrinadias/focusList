@@ -5,7 +5,9 @@ import Search from "./index";
 describe("Search Component", () => {
   it("should render the search input", () => {
     render(<Search onSearch={jest.fn()} />);
-    expect(screen.getByPlaceholderText("Search tasks...")).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText("Procurando tarefas...")
+    ).toBeInTheDocument();
   });
 
   it("should render the search icon by default", () => {
@@ -16,7 +18,7 @@ describe("Search Component", () => {
     const onSearch = jest.fn();
     render(<Search onSearch={onSearch} />);
 
-    const input = screen.getByPlaceholderText("Search tasks...");
+    const input = screen.getByPlaceholderText("Procurando tarefas...");
     const searchButton = screen.getByTestId("SearchIcon");
 
     fireEvent.change(input, { target: { value: "Test Task" } });
@@ -27,7 +29,7 @@ describe("Search Component", () => {
   it("should render the clear icon after performing a search", () => {
     render(<Search onSearch={jest.fn()} />);
 
-    const input = screen.getByPlaceholderText("Search tasks...");
+    const input = screen.getByPlaceholderText("Procurando tarefas...");
     const searchButton = screen.getByTestId("SearchIcon");
 
     fireEvent.change(input, { target: { value: "Test Task" } });
@@ -39,7 +41,7 @@ describe("Search Component", () => {
     const onSearch = jest.fn();
     render(<Search onSearch={onSearch} />);
 
-    const input = screen.getByPlaceholderText("Search tasks...");
+    const input = screen.getByPlaceholderText("Procurando tarefas...");
     const searchButton = screen.getByTestId("SearchIcon");
 
     fireEvent.change(input, { target: { value: "Test Task" } });

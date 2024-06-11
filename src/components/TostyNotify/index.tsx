@@ -1,6 +1,6 @@
 import { toast, ToastContainer, ToastOptions } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.css";
+import "./style";
 
 type ToastType = "info" | "success" | "warning" | "error";
 

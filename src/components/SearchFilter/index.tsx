@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 
 import IconButton from "@material-ui/core/IconButton";
-import { makeStyles } from "@material-ui/core/styles";
 import ClearIcon from "@mui/icons-material/Clear";
 import SearchIcon from "@mui/icons-material/Search";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginBottom: theme.spacing(2),
-  },
-}));
+import { useStyles } from "./style";
 
 interface SearchProps {
   onSearch: (query: string) => void;
@@ -19,8 +14,8 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({ onSearch }) => {
   const classes = useStyles();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [isSearching, setIsSearching] = useState<boolean>(false);
 
   const handleSearch = () => {
     setIsSearching(true);
@@ -37,18 +32,23 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
     setIsSearching(false);
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleSearch();
+  };
+
   return (
-    <div className={classes.root}>
+    <form onSubmit={handleSubmit} className={classes.root}>
       <TextField
         fullWidth
-        placeholder="Search tasks..."
+        placeholder="Procurando tarefas..."
         value={searchQuery}
         onChange={handleChange}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
               {!isSearching ? (
-                <IconButton onClick={handleSearch}>
+                <IconButton type="submit">
                   <SearchIcon />
                 </IconButton>
               ) : (
@@ -60,7 +60,7 @@ const Search: React.FC<SearchProps> = ({ onSearch }) => {
           ),
         }}
       />
-    </div>
+    </form>
   );
 };
 

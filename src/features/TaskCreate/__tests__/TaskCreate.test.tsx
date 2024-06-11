@@ -40,14 +40,14 @@ describe("TaskCreate Component", () => {
     const { container } = render(<TaskCreate />);
 
     // Find title and description inputs
-    const addButton = screen.getByRole("button", { name: "Add Task" });
-    const titleInput = container.querySelector('input[name="title"]') as any;
+    const addButton = screen.getByRole("button", { name: "Criar nova Tarefa" });
+    const titleInput = container.querySelector('input[name="title"]');
     const descriptionInput = container.querySelector(
       'textarea[name="description"]'
-    ) as any;
+    );
     // Fill form
-    fireEvent.change(titleInput, { target: { value: "Test: Title" } });
-    fireEvent.change(descriptionInput, {
+    fireEvent.change(titleInput!, { target: { value: "Test: Title" } });
+    fireEvent.change(descriptionInput!, {
       target: { value: "Test: Description" },
     });
 
@@ -57,7 +57,7 @@ describe("TaskCreate Component", () => {
       expect(window.location.href).toContain("http://localhost/");
     });
 
-    expect(mockShowToast).toHaveBeenCalledWith("Nova task criada!");
+    expect(mockShowToast).toHaveBeenCalledWith("Nova Tarefa criada!");
   });
 
   test("displays error toast on submission error", async () => {
@@ -70,14 +70,14 @@ describe("TaskCreate Component", () => {
     const { container } = render(<TaskCreate />);
 
     // Find title and description inputs
-    const addButton = screen.getByRole("button", { name: "Add Task" });
-    const titleInput = container.querySelector('input[name="title"]') as any;
+    const addButton = screen.getByRole("button", { name: "Criar nova Tarefa" });
+    const titleInput = container.querySelector('input[name="title"]');
     const descriptionInput = container.querySelector(
       'textarea[name="description"]'
-    ) as any;
+    );
     // Fill form
-    fireEvent.change(titleInput, { target: { value: "Test: Title" } });
-    fireEvent.change(descriptionInput, {
+    fireEvent.change(titleInput!, { target: { value: "Test: Title" } });
+    fireEvent.change(descriptionInput!, {
       target: { value: "Test: Description" },
     });
     fireEvent.click(addButton);

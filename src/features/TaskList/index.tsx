@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 
 import List from "@material-ui/core/List";
-import { makeStyles, Theme } from "@material-ui/core/styles";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
@@ -11,12 +10,9 @@ import TaskListItem from "../../components/TaskListItem";
 import { useTasks } from "../../hooks/useTasks";
 import { ITask } from "../../interfaces/tasks";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  skeleton: {
-    width: "100%",
-    boxShadow: theme.shadows[3],
-  },
-}));
+import { useStyles } from "./style";
+
+
 
 function TasksList() {
   const classes = useStyles();

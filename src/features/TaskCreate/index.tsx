@@ -10,17 +10,14 @@ import TextField from "@material-ui/core/TextField";
 import { useToast } from "../../context/NotifyContext/useToast";
 import useCreateTask from "../../hooks/useCreateTask";
 
-interface FormValues {
-  title: string;
-  description: string;
-}
+import { IFormValues } from "./interface";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required("Título é obrigatório"),
   description: Yup.string().required("Descriçao é obrigatória"),
 });
 
-const initialValues: FormValues = {
+const initialValues: IFormValues = {
   title: "",
   description: "",
 };
@@ -51,8 +48,8 @@ const TaskCreate: React.FC = () => {
   const { showToast } = useToast();
   const { mutate, isSuccess, isError } = useCreateTask();
   const handleSubmit = (
-    values: FormValues,
-    { resetForm }: FormikHelpers<FormValues>
+    values: IFormValues,
+    { resetForm }: FormikHelpers<IFormValues>
   ) => {
     mutate(values);
     resetForm();
@@ -61,15 +58,15 @@ const TaskCreate: React.FC = () => {
   useEffect(() => {
     if (isSuccess) {
       navigate("/");
-      showToast("Nova task criada!");
+      showToast("Nova Tarefa criada!");
     }
-  }, [isSuccess]);
+  }, [isSuccess, navigate, showToast]);
 
   useEffect(() => {
     if (isError) {
       showToast("Erro ao criar a task!");
     }
-  }, [isError]);
+  }, [isError, showToast]);
 
   return (
     <Formik
@@ -109,7 +106,7 @@ const TaskCreate: React.FC = () => {
             color="primary"
             type="submit"
           >
-            Add Task
+            Criar nova Tarefa
           </Button>
         </Form>
       )}

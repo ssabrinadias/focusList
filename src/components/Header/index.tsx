@@ -3,29 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
-import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import AddIcon from "@material-ui/icons/Add";
 
 import usePageTitle from "../../hooks/usePageTitle";
 
-const useStyles = makeStyles(() => ({
-  appBar: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-  },
-  toolbar: {
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  title: {
-    flexGrow: 1,
-    cursor: "pointer",
-  },
-}));
+import { useStyles } from "./style";
+
+
 
 const Header: React.FC = () => {
   const classes = useStyles();

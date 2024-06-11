@@ -1,40 +1,43 @@
 import { waitFor } from "@testing-library/react";
 import { renderHook } from "@testing-library/react-hooks";
 
-import useCreateTask from "../useCreateTask";
+import useUpdateTask from "../useUpdateTasks";
 
 jest.mock("../../services/createTaks");
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (
   <AllTheProviders>{children}</AllTheProviders>
 );
-import { createTask } from "../../services/createTaks";
+import { rest } from "msw";
+
+import { server } from "../../config/server";
+// import { updateTask } from "../../services/updateTasks";
 import { AllTheProviders } from "../../utils/ProvidersForTest";
 
-describe("useCreateTask", () => {
-  it("should create a new task successfully", async () => {
-    const { result } = renderHook(() => useCreateTask(), { wrapper });
+describe("useUpdateTask", () => {
+  it("should update task done successfully", async () => {
+    const { result } = renderHook(() => useUpdateTask(), { wrapper });
     const { mutate } = result.current;
 
-    mutate({
-      title: "Test Task",
-      description: "Test Description",
-    });
+    mutate({ id: 1, status: "done" });
     await waitFor(() => result.current.isError);
 
     expect(result.current.isError).toBe(false);
     expect(result.current.error).toEqual(null);
   });
   it("should create a new task Error", async () => {
-    const error = new Error("Failed to create task");
-    (createTask as jest.Mock).mockRejectedValue(error);
-    const { result } = renderHook(() => useCreateTask(), { wrapper });
+    server.use(
+      rest.put(
+        "https://6664c2d2932baf9032ac056c.mockapi.io/tasks/:taskId",
+        (_, res, ctx) => {
+          return res(ctx.status(500), ctx.json({ message: "text for test" }));
+        }
+      )
+    );
+    const { result } = renderHook(() => useUpdateTask(), { wrapper });
     const { mutate } = result.current;
 
-    mutate({
-      title: "Test Task",
-      description: "Test Description",
-    });
+    mutate({ id: 1, status: "todo" });
     await waitFor(() => result.current.isError);
 
     expect(result.current.isError).toBe(true);
