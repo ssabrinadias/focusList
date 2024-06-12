@@ -1,5 +1,5 @@
-import AppContainer from "../components/ContentContainer";
-import TaskCreate from "../features/TaskCreate";
+import AppContainer from "../../components/ContentContainer";
+import TaskCreate from "../../features/TaskCreate";
 
 function NewTask() {
   return (

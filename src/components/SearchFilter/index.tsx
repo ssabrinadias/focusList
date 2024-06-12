@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 
 import { useStyles } from "./style";
 
-interface SearchProps {
+export interface SearchProps {
   onSearch: (query: string) => void;
 }
 

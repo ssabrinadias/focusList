@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const usePageTitle = (): string => {
+import { IRoutesTitles } from "../pages/interfaces";
+
+const usePageTitle = (): IRoutesTitles => {
   const location = useLocation();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState<IRoutesTitles>("Suas tarefas!");
 
   useEffect(() => {
     const getTitle = () => {
@@ -13,7 +15,7 @@ const usePageTitle = (): string => {
         case "/new-task":
           return "Crie uma nova tarefa";
         default:
-          return "Minha Aplicação";
+          return "Suas tarefas!";
       }
     };
 
