@@ -5,4 +5,4 @@
 yarn run typecheck 
 yarn format
 yarn lint
-# todo incluir testes
+yarn test

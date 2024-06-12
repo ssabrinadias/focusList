@@ -61,6 +61,7 @@ const TaskListItem: React.FC<ITaskListItemProps> = ({ task }) => {
             checked={checked}
             onChange={handleToggle}
             inputProps={{ "aria-label": "Mark task as completed" }}
+            color="default"
           />
         )}
       </ListItemSecondaryAction>
