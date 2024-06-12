@@ -8,9 +8,7 @@ import Header from "./";
 const meta = {
   title: "Components/Header",
   component: Header,
-  parameters: {
-    layout: "centered",
-  },
+
   tags: ["autodocs"],
   decorators: [
     (Story, context: StoryContext) => {
@@ -18,9 +16,10 @@ const meta = {
         context.args.pageTitle === "Tasks" ? ["/new-tasks"] : ["/"];
       return (
         <MemoryRouter initialEntries={initialEntries}>
+          <Story />
           <Routes>
-            <Route path="/" element={<Story />} />
-            <Route path="/new-tasks" element={<Story />} />
+            <Route path="/" element={<></>} />
+            <Route path="/new-tasks" element={<></>} />
           </Routes>
         </MemoryRouter>
       );

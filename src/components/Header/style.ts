@@ -1,3 +1,4 @@
+import { deepPurple } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles(() => ({
   appBar: {
@@ -5,6 +6,7 @@ export const useStyles = makeStyles(() => ({
     top: 0,
     left: 0,
     right: 0,
+    background: deepPurple[300],
   },
   toolbar: {
     display: "flex",

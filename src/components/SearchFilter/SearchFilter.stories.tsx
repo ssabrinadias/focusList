@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
+import AppContainer from "../ContentContainer";
+
 import SearchFilter from "./";
 
-const meta = {
+const meta: Meta<typeof SearchFilter> = {
   title: "Components/SearchFilter",
   component: SearchFilter,
   parameters: {
@@ -13,8 +15,15 @@ const meta = {
   argTypes: {
     onSearch: fn(),
   },
+  decorators: [
+    (Story) => (
+      <AppContainer>
+        <Story />
+      </AppContainer>
+    ),
+  ],
   args: { onSearch: fn() },
-} satisfies Meta<typeof SearchFilter>;
+}; 
 
 export default meta;
 type Story = StoryObj<typeof meta>;
