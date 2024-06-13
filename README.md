@@ -1,29 +1,30 @@
 # FocusList
 
-## Description
+### Description
+
 The project aims to organize tasks in a TODO list format. Each task can be created, modified or completed
 
-## Features
-Add new tasks
-Modify existing tasks
-Mark tasks as completed
-Filter tasks by name
+### Features
 
+- Add new tasks
+- Modify existing tasks
+- Mark tasks as completed
+- Filter tasks by name
 
-## About
+### About
+
 This project is a React application with Vite. It includes various tools and libraries for development, testing, and building the application.
 
 The architecture is based on a Component-Oriented Architecture (COA) where the primary focus is on building the system from modular and independent components. In this approach, each component represents a specific functionality of the system and interacts with other components in a well-defined manner.
 
 This architecture allows for greater modularity, reusability, and maintainability of the system. Components can be developed, tested, and updated separately, promoting a more flexible and scalable system. Changes in one part of the system have a controlled impact on other parts.
 
-
-## Version
+### Version
 
 - Project Version: `0.0.0`
 - Node Version: `18.18.0`
 
-## Technologies
+### Technologies
 
 - React
 - Vite
@@ -70,14 +71,12 @@ yarn dev
 Running on port http://localhost:3001/
 ```
 
-
 To start the server pointing to the development mock MSW, run:
 
 ```bash
 yarn dev:mock
 Running on port http://localhost:3001/
 ```
-
 
 To run the tests, run:
 
@@ -89,9 +88,10 @@ To run the storybook, run::
 
 ```bash
  yarn storybook
+ Running on port http://localhost:6006/
 ```
 
-## Running Git Actions
+### Running Git Actions
 
 This project is configured to automatically run Git Actions whenever there is a push to the repository. The configured actions are responsible for:
 
