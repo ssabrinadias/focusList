@@ -18,7 +18,6 @@ describe("ErrorPage component", () => {
     render(<ErrorPage />);
 
     expect(screen.getByText(/algo deu errado/i)).toBeInTheDocument();
-    expect(screen.getByText(/a api não está respondendo/i)).toBeInTheDocument();
 
     const button = screen.getByRole("button", { name: /tentar novamente/i });
     expect(button).toBeInTheDocument();

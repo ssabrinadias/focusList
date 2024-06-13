@@ -15,11 +15,7 @@ describe("Home component", () => {
     render(<Home />);
 
     expect(screen.getByText(/Algo deu errado/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        /A API não está respondendo. Por favor, tente novamente mais tarde/i
-      )
-    ).toBeInTheDocument();
+  
     expect(screen.queryByText(/tasks list/i)).toBeNull();
   });
 

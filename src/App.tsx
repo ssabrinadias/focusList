@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FunctionComponent } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 import { ThemeProvider } from "@material-ui/styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import ErrorComponent from "./components/ErrorComponent";
 import ToastProvider from "./context/NotifyContext";
 import { MOCK } from "./data/config";
 import AppRoutes from "./pages/router";
@@ -24,13 +26,16 @@ const App: FunctionComponent = () => {
     })
   );
   return (
-    <ToastProvider>
-      <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          <AppRoutes />
-        </QueryClientProvider>
-      </ThemeProvider>
-    </ToastProvider>
+    <ErrorBoundary fallback={<ErrorComponent/>}>
+      <ToastProvider>
+        <ThemeProvider theme={theme}>
+          <QueryClientProvider client={queryClient}>
+            <AppRoutes />
+          </QueryClientProvider>
+        </ThemeProvider>
+      </ToastProvider>
+    </ErrorBoundary>
+  
   );
 };
 

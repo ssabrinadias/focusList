@@ -54,6 +54,15 @@ yarn dev
 Running on port http://localhost:3001/
 ```
 
+
+To start the server pointing to the development mock MSW, run:
+
+```bash
+yarn dev:mock
+Running on port http://localhost:3001/
+```
+
+
 To run the tests, run:
 
 ```bash
