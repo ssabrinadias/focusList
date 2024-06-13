@@ -1,30 +1,77 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# FocusList
 
-Currently, two official plugins are available:
+This project is a React application with Vite. It includes various tools and libraries for development, testing, and building the application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Version
 
-## Expanding the ESLint configuration
+- Project Version: `0.0.0`
+- Node Version: `18.18.0`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+## Technologies
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React
+- Vite
+- TypeScript
+- Material-UI (v4)
+- React Query
+- React Router DOM
+- Axios
+- Formik
+- Yup
+- React Toastify
+- Jest
+- React Testing Library
+- Storybook
+- MSW
+- Git Actions 
+- Husky
+
+## Installation
+
+To get started with the project, you need to have Node.js (v18.18.0) and Yarn installed. Follow the steps below to set up the project:
+
+ 
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/ssabrinadias/focusList
+    cd focusList
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    yarn install
+    ```
+
+## Scripts
+
+### Development
+
+To start the development server, run:
+
+```bash
+yarn dev
+Running on port http://localhost:3001/
+````
+
+
+To run the tests, run:
+
+```bash
+yarn test
+````
+
+To run the storybook, run::
+
+```bash
+ yarn storybook
+````
+
+### Note
+
+   If you need to change the Node.js version, you can use [NVM (Node Version Manager)](https://github.com/nvm-sh/nvm) to manage multiple Node.js versions on your machine.
