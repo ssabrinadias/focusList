@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 
-import { useToastNotify } from "../../components/TostyNotify";
+import { useToastNotify } from "../../hooks/UseTostyNotify";
 
 import ToastContext from "./ToastContext";
 

@@ -12,7 +12,7 @@ import { createTask } from "../../services/createTaks";
 import { AllTheProviders } from "../../utils/ProvidersForTest";
 
 describe("useCreateTask", () => {
-  it("should create a new task successfully", async () => {
+  test("should create a new task successfully", async () => {
     const { result } = renderHook(() => useCreateTask(), { wrapper });
     const { mutate } = result.current;
 
@@ -25,7 +25,7 @@ describe("useCreateTask", () => {
     expect(result.current.isError).toBe(false);
     expect(result.current.error).toEqual(null);
   });
-  it("should create a new task Error", async () => {
+  test("should create a new task Error", async () => {
     const error = new Error("Failed to create task");
     (createTask as jest.Mock).mockRejectedValue(error);
     const { result } = renderHook(() => useCreateTask(), { wrapper });

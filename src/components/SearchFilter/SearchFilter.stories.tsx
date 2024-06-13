@@ -23,7 +23,7 @@ const meta: Meta<typeof SearchFilter> = {
     ),
   ],
   args: { onSearch: fn() },
-}; 
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
