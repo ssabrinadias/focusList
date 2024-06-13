@@ -28,6 +28,5 @@ jobs:
       - run: |
           yarn install
           yarn run typecheck 
-          yarn format
           yarn lint
           yarn test
