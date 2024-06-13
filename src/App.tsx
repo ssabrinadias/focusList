@@ -5,12 +5,12 @@ import { ThemeProvider } from "@material-ui/styles";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import ToastProvider from "./context/NotifyContext";
-import { APP_MODE } from "./data/config";
+import { MOCK } from "./data/config";
 import AppRoutes from "./pages/router";
 import theme from "./styles/theme";
 
 const App: FunctionComponent = () => {
-  if (APP_MODE === "development") {
+  if (MOCK === "mocked") {
     import("./config");
   }
 

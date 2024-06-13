@@ -3,8 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "^18.18"
+  },
   "scripts": {
     "dev": "vite",
+    "dev:mock": "VITE_MOCK=mocked vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "jest --coverage",
@@ -70,6 +74,7 @@
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",
     "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",

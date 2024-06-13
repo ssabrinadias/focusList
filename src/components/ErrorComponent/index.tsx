@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@material-ui/core";
 import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
 
 const ErrorPage: React.FC = () => {
+  const retray = () => window.location.reload();
   return (
     <Container maxWidth="sm" style={{ textAlign: "center", marginTop: "20vh" }}>
       <ErrorOutlineIcon color="secondary" fontSize="large" />
@@ -12,11 +13,7 @@ const ErrorPage: React.FC = () => {
         A API não está respondendo. Por favor, tente novamente mais tarde.
       </Typography>
       <Box mt={4}>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => window.location.reload()}
-        >
+        <Button variant="contained" color="secondary" onClick={() => retray()}>
           Tentar novamente
         </Button>
       </Box>

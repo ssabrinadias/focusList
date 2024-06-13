@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import NoTasksPlaceholder from "./";
+import NoTasksPlaceholder from ".";
 
 const meta: Meta<typeof NoTasksPlaceholder> = {
   title: "Components/NoTasksPlaceholder",

@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 
 import { createTask } from "../services/createTaks";
+import { setTasksStatus } from "../utils/setTasksStatus";
 
 interface ITaskData {
   title: string;
@@ -17,12 +18,11 @@ const useCreateTask = () => {
     mutationFn: (payload: IAddItemRequest) => {
       const payloadFormat: ITaskData = {
         ...payload,
-        status: "todo",
-        active: true,
+        ...setTasksStatus("create"),
       };
       return createTask(payloadFormat);
     },
-    onError: (error) => console.log("erro", error),
+    onError: (error) => console.error(error),
   });
 };
 

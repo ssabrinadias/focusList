@@ -1,11 +1,10 @@
 import AppContainer from "../../components/ContentContainer";
-import ErrorPage from "../../ErrorComponent";
+import ErrorPage from "../../components/ErrorComponent";
 import TasksList from "../../features/TaskList";
 import { useTasks } from "../../hooks/useTasks";
 
 function Home() {
-  const { isSuccess, status } = useTasks();
-  console.log(isSuccess, status);
+  const { status } = useTasks();
   return (
     <AppContainer>
       {status === "error" ? <ErrorPage /> : <TasksList />}

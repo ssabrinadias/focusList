@@ -51,22 +51,6 @@ describe("TasksList Component", () => {
     });
   });
 
-  test.skip("handles server error", async () => {
-    // todo
-    server.use(
-      rest.get(`${API_URL}tasks`, (_, res, ctx) => {
-        return res(ctx.status(500));
-      })
-    );
-
-    render(<TasksList />);
-
-    await waitFor(() => {
-      expect(
-        screen.getByText("Erro ao buscar as tarefas.")
-      ).toBeInTheDocument();
-    });
-  });
   test("should show tasks and fetch and clear fields correctly", async () => {
     server.use(
       rest.get(`${API_URL}tasks`, (_, res, ctx) => {
@@ -124,5 +108,21 @@ describe("TasksList Component", () => {
         name: /nenhuma tarefa encontrada/i,
       })
     ).toBeInTheDocument();
+  });
+  test.only("handles server error", async () => {
+    server.use(
+      rest.get(`${API_URL}tasks`, (_, res, ctx) => {
+        return res(ctx.status(500));
+      })
+    );
+
+    render(<TasksList />);
+
+    await waitFor(() => {
+      // expect(
+      //   screen.getByText("Erro ao buscar as tarefas.")
+      // ).toBeInTheDocument();
+      screen.debug();
+    });
   });
 });

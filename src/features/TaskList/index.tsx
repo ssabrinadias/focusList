@@ -4,7 +4,7 @@ import List from "@material-ui/core/List";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
-import NoTasksPlaceholder from "../../components/NoTasksPlaceholder";
+import NoTasksPlaceholder from "../../components/NoTasksComponent";
 import Search from "../../components/SearchFilter";
 import TaskListItem from "../../components/TaskListItem";
 import { useTasks } from "../../hooks/useTasks";
