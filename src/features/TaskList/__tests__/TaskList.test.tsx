@@ -109,20 +109,4 @@ describe("TasksList Component", () => {
       })
     ).toBeInTheDocument();
   });
-  test.only("handles server error", async () => {
-    server.use(
-      rest.get(`${API_URL}tasks`, (_, res, ctx) => {
-        return res(ctx.status(500));
-      })
-    );
-
-    render(<TasksList />);
-
-    await waitFor(() => {
-      // expect(
-      //   screen.getByText("Erro ao buscar as tarefas.")
-      // ).toBeInTheDocument();
-      screen.debug();
-    });
-  });
 });
