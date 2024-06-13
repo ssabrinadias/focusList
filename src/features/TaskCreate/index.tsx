@@ -103,7 +103,7 @@ const TaskCreate: React.FC = () => {
           <Button
             className={classes.button}
             variant="contained"
-            color="primary"
+            color="secondary"
             type="submit"
           >
             Criar nova Tarefa
